@@ -12,7 +12,7 @@ const Status = () => {
 			</h2>
 			<p className="mt-2 text-sky-800">
 				Our next scheduled maintenance will be on the first Sunday of each
-				month. Please check back here for updates.
+				month. Please check back to this page for any updates.
 			</p>
 		</div>
 	);
