@@ -4,7 +4,7 @@ import Image from "next/image";
 import Navbar from "./navbar";
 import Footer from "./footer";
 import { SessionProvider } from "next-auth/react";
-import { TrpcProvider } from "@/lib/trpc-provider";
+import { TrpcProvider } from "~/lib/trpc-provider";
 import "../styles/globals.css";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
