@@ -1,6 +1,7 @@
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
+
 export const env = createEnv({
   /**
    * Specify your server-side environment variables schema here. This way you can ensure the app
@@ -27,6 +28,7 @@ export const env = createEnv({
     DISCORD_CLIENT_SECRET: z.string(),
   },
 
+
   /**
    * Specify your client-side environment variables schema here. This way you can ensure the app
    * isn't built with invalid env vars. To expose them to the client, prefix them with
@@ -35,6 +37,7 @@ export const env = createEnv({
   client: {
     // NEXT_PUBLIC_CLIENTVAR: z.string(),
   },
+
 
   /**
    * You can't destruct `process.env` as a regular object in the Next.js edge runtimes (e.g.
@@ -60,3 +63,8 @@ export const env = createEnv({
    */
   emptyStringAsUndefined: true,
 });
+
+
+
+
+
