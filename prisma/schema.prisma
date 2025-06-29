@@ -1,9 +1,11 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+
 generator client {
     provider = "prisma-client-js"
 }
+
 
 datasource db {
     provider = "postgresql"
@@ -14,6 +16,7 @@ datasource db {
     url      = env("DATABASE_URL")
     directUrl = env("DIRECT_URL")
 }
+
 
 // Necessary for Next auth
 model Account {
@@ -32,8 +35,10 @@ model Account {
     user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
     refresh_token_expires_in Int?
 
+
     @@unique([provider, providerAccountId])
 }
+
 
 model Session {
     id           String   @id @default(cuid())
@@ -42,6 +47,7 @@ model Session {
     expires      DateTime
     user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
+
 
 model User {
     id            String    @id @default(cuid())
@@ -56,23 +62,27 @@ model User {
     income        Income[]
 }
 
+
 model VerificationToken {
     identifier String
     token      String   @unique
     expires    DateTime
 
+
     @@unique([identifier, token])
 }
 
+
 model Expense {
     id Int @id @default(autoincrement())
-    name String @db.VarChar(255) 
+    name String @db.VarChar(255)
     category String @db.VarChar(255)
     cost Int // stores cents - find way to implement $
     purchaseTime DateTime
     userId String
     user User @relation(fields: [userId], references: [id])
 }
+
 
 model Budget{
     id Int @id @default(autoincrement())
@@ -83,6 +93,7 @@ model Budget{
     user User @relation(fields: [userId], references: [id])
 }
 
+
 model Income{
     id Int @id @default(autoincrement())
     month String //change to String
@@ -90,3 +101,4 @@ model Income{
     userId String
     user User @relation(fields: [userId], references: [id])
 }
+
